@@ -1,0 +1,8 @@
+#!/bin/zsh
+echo "Installing latex live packages"
+tlmgr install babel babel-spanis infwarerr \
+	blindtext IEEEtran amsmath booktabs\
+       	tikz pgfplots siunitx tikzposter\
+	graphics biblatex algorithmic\
+	algorithm2e algorithmcx program\
+	pgf ms xcolor

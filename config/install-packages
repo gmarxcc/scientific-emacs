@@ -1,13 +1,4 @@
 #!/bin/zsh
-tlmgr init-usertree
-
-echo "Installing latex live packages"
-tlmgr install babel babel-spanis infwarerr \
-	blindtext IEEEtran amsmath booktabs\
-       	tikz pgfplots siunitx tikzposter\
-	graphics biblatex algorithmic\
-	algorithm2e algorithmcx program\
-	pgf ms xcolor
 
 echor "Installing oh my zshell"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

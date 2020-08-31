@@ -1,2 +1,17 @@
 config/.emacs.d
 config/texmf 
+config/.zshrc
+config/.viminfo
+config/.zcompdump-*
+config/.zshrc
+config/.zsh_history
+config/.local
+config/.oh-my-zsh
+config/.shell.pre-oh-my-zsh
+config/.zcompdump
+config/.cache
+config/.bash_history
+config/.cache
+config/.zshrc.pre-oh-my-zsh
+.DS_Store
+dump.rdb

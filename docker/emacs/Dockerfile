@@ -28,8 +28,7 @@ python3 \
 zsh
 
 # oh-my-zshell
-RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
-    -p git -p ssh-agent
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 
 # entrypoint
 ENTRYPOINT ["zsh"]

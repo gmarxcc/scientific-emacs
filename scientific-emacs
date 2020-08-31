@@ -1,12 +1,23 @@
 #!/usr/bin/env zsh
-# scriipt to obatin machine's ip and run the docker container
+# script to obatin machine's ip and run the docker container
 ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 xhost + $ip
+echo 'checking redis ...'
+if [ "$(docker container inspect -f '{{.State.Status}}' this_redis)" = "running" ]; then 
+	echo 'starting redis'
+	docker start this_redis
+else
+	echo 'running redis...'
+ 	docker run --name this_redis redis
+fi
+
+# scientific
 echo 'running scientific-emacs:0.1'
 docker run --rm -it \
-	-v `pwd`/config:/root \
-        -v `pwd`:/home\
-        -e DISPLAY=$ip:0 \
-        -v /tmp/.X11-unix:/tmp/.X11-unix \
-	--link this_redis \
-        gmarxcc/scientific-emacs:0.1
+-v `pwd`/config:/root \
+-v `pwd`:/home \
+-e DISPLAY=$ip:0 \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+--link this_redis \
+gmarxcc/scientific-emacs:0.1
+# end

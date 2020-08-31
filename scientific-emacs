@@ -3,8 +3,10 @@
 ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 xhost + $ip
 echo 'running scientific-emacs:0.1'
-docker run --rm -it  -v ~/lwc/docker-containers/scientific-emacs/config:/root \
+docker run --rm -it \
+	-v `pwd`/config:/root \
         -v `pwd`:/home\
-         -e DISPLAY=$ip:0 \
-          -v /tmp/.X11-unix:/tmp/.X11-unix \
-          gmarxcc/scientific-emacs:0.1
+        -e DISPLAY=$ip:0 \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+	--link this_redis \
+        gmarxcc/scientific-emacs:0.1

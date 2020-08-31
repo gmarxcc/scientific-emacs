@@ -173,7 +173,7 @@
 (dolist (hook '(org-mode-hook latex-mode-hook tex-mode-hook git-commit-mode-hook))
 	(add-hook hook (lambda () (flyspell-mode 1))))
 ;;(setq ispell-dictionary "en")
-(setq ispell-program-name "/usr/local/bin/aspell")
+(setq ispell-program-name "/usr/bin/aspell")
 ;;-+-+-+-+-+-+-+-
 
 
@@ -186,7 +186,7 @@
  '(custom-safe-themes
    (quote
     ("3c2f28c6ba2ad7373ea4c43f28fcf2eed14818ec9f0659b1c97d4e89c99e091e" "8d7684de9abb5a770fbfd72a14506d6b4add9a7d30942c6285f020d41d76e0fa" "990e24b406787568c592db2b853aa65ecc2dcd08146c0d22293259d400174e37" "bf387180109d222aee6bb089db48ed38403a1e330c9ec69fe1f52460a8936b66" default)))
- '(package-selected-packages (quote (use-package)))
+ '(package-selected-packages (quote (org-pdftools use-package)))
  '(pdf-tools-handle-upgrades nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

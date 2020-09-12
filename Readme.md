@@ -1,5 +1,20 @@
 # Readme 
 
+Write here about container
+
+# How to install
+1. Clone this repository:
+`git clone xxxx`
+2. Build the container using: 
+`docker build -t gmarxcc/scientific-emacs:0.1 docker/emacs/`
+3. Run the container to test:
+`docker run --rm -it gmarxcc/scientific-emacs:0.1`
+4. Run an Ubuntu command like `ls`
+
+Done, you are doing great!
+
+# Executing emacs
+
 To get the ip address
 '''
 open -a xquartz

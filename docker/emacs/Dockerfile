@@ -12,7 +12,7 @@ RUN apt-get update \
 # installing texlive base with pdflatex utility:
 RUN apt-get -y install \
 texlive-latex-base \
-texlive-latex-recommended \
+texlive-latex-extra \
 texlive-pictures \
 texlive-science \
 texlive-bibtex-extra
@@ -25,6 +25,8 @@ curl \
 aspell \
 vim \
 python3 \
+elpa-pdf-tools \
+auctex \
 zsh
 
 # oh-my-zshell

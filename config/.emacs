@@ -93,45 +93,43 @@
   :bind
   ("C-=" . er/expand-region)
   ("C--" . er/contract-region))
+
 ;; latex
-(use-package tex
-  :defer t
-  :ensure auctex
-  :init
-  (progn
-    (setq-default TeX-master nil) ; Query for master file.
-    (setq TeX-auto-save t) ; Enable parse on save.
-    (setq TeX-save-query nil)
-    ;;(setq TeX-command-force "LaTex")
-    (setq latex-run-command "pdflatex")
-    (setq TeX-parse-self t) ; Enable parse on load.
-    (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/"))
-    (setq exec-path (append exec-path '("/Library/TeX/texbin/")))
-    ;; pdf-tools configuration
-    (setq TeX-PDF-mode t)
-    (add-hook 'TeX-after-compilation-finished-functions
-     	    #'TeX-revert-document-buffer)
-    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-     	 TeX-source-correlate-start-server t)
-    (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
-    (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
-    (add-hook 'pdf-view-mode-hook
-     	      (lambda () (pdf-tools-enable-minor-modes)))
-    (setq LaTeX-includegraphics-read-file 'LaTeX-includegraphics-read-file-relative)
-    )
-  :config
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              ;;(rainbow-delimiters-mode)
-              ;;(company-mode)
-              ;;(smartparens-mode)
-              (turn-on-reftex)
-              (setq reftex-plug-into-AUCTeX t)
-              (reftex-isearch-minor-mode)
-              (setq TeX-PDF-mode t)
-              (setq TeX-source-correlate-method 'synctex)
-              (setq TeX-source-correlate-start-server t)))
-  )
+;; (use-package tex
+;;   :defer t
+;;   :ensure auctex
+;;   :init
+;;   (progn
+;;     (setq-default TeX-master nil) ; Query for master file.
+;;     (setq TeX-auto-save t) ; Enable parse on save.
+;;     (setq TeX-save-query nil)
+;;     (setq LaTeX-includegraphics-read-file 'LaTeX-includegraphics-read-file-relative)
+;;     (custom-set-variables '(LaTeX-command "latex -synctex=1"))
+;;     ;;(setq TeX-command-force "LaTex")
+;;     ;;(setq latex-run-command "pdflatex")
+;;     (setq TeX-parse-self t) ; Enable parse on load.
+;;     (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/"))
+;;     (setq exec-path (append exec-path '("/Library/TeX/texbin/")))
+;;     ;; pdf-tools configuration
+;;     (setq TeX-PDF-mode t)
+;;       (add-hook 'TeX-after-compilation-finished-functions
+;; 	    #'TeX-revert-document-buffer)
+;;     (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+;; 	 TeX-source-correlate-start-server t)
+;;     (setq pdf-info-epdfinfo-program "/usr/bin/epdfinfo")
+;;     (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
+;;     (add-hook 'pdf-view-mode-hook
+;; 	      (lambda () (pdf-tools-enable-minor-modes))) 
+;;     )
+  ;; :config
+  ;; (add-hook 'LaTeX-mode-hook
+  ;;           (lambda ()
+  ;;             (company-mode)
+  ;;             (turn-on-reftex)
+  ;;             (setq reftex-plug-into-AUCTeX t)
+  ;;             (reftex-isearch-minor-mode))
+  ;; )
+  
 ;; pdf-tools
 (use-package pdf-tools
   :ensure t
@@ -139,25 +137,9 @@
   :magic ("%PDF" . pdf-view-mode)
   :config
    (custom-set-variables
-     '(pdf-tools-handle-upgrades nil))
-  )
-
-
-
-;; -+-+-+-+-+-+-+
-;; startup config
-(setq inhibit-startup-message t) ;;inhibit startup
-(show-paren-mode 1) ;; parenthesis match 
-(tool-bar-mode -1) ;; no tool-bar
-(menu-bar-mode -1) ;; menu-bar disable  
-(global-hl-line-mode +1) ;; highlith current line
-(delete-selection-mode +1) ;; deletes selected text and replace it
-(scroll-bar-mode -1)
-;; Set default font:
-(add-to-list 'default-frame-alist
-	     '(font . "DejaVu Sans Mono-16"))
-(fset 'yes-or-no-p 'y-or-n-p) ;; Ask y/n instead of yes/no
-(add-hook 'prog-mode-hook 'display-line-numbers-mode) ;; display line number when programming
+     '(pdf-tools-handle-upgrades nil)) 
+   )
+;; ----------
 ;; rextex
 (use-package reftex
   :ensure t
@@ -175,6 +157,24 @@
 ;;(setq ispell-dictionary "en")
 (setq ispell-program-name "/usr/bin/aspell")
 ;;-+-+-+-+-+-+-+-
+
+
+
+;; -+-+-+-+-+-+-+
+;; startup config
+(setq inhibit-startup-message t) ;;inhibit startup
+(show-paren-mode 1) ;; parenthesis match 
+(tool-bar-mode -1) ;; no tool-bar
+(menu-bar-mode -1) ;; menu-bar disable  
+(global-hl-line-mode +1) ;; highlith current line
+(delete-selection-mode +1) ;; deletes selected text and replace it
+(scroll-bar-mode -1)
+;; Set default font:
+(add-to-list 'default-frame-alist
+	     '(font . "DejaVu Sans Mono-16"))
+(fset 'yes-or-no-p 'y-or-n-p) ;; Ask y/n instead of yes/no
+(add-hook 'prog-mode-hook 'display-line-numbers-mode) ;; display line number when programming
+;; -+-+-+-+-+-+-+-
 
 
 

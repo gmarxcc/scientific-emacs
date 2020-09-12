@@ -3,12 +3,17 @@
 ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 xhost + $ip
 echo 'checking redis ...'
-if [ "$(docker container inspect -f '{{.State.Status}}' this_redis)" = "running" ]; then 
+state=$(docker container inspect -f '{{.State.Status}}' this_redis) 
+echo "$state"
+if  [ $state = "exited" ]; then 
 	echo 'starting redis'
 	docker start this_redis
+elif [ $state = "running" ]; then 
+	echo 'stopping redis...'
+	docker stop  this_redis
+	docker start this_redis 	
 else
-	echo 'running redis...'
- 	docker run --name this_redis redis
+ 	docker run -d --name this_redis redis
 fi
 
 # scientific

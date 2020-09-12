@@ -15,3 +15,7 @@ config/.cache
 config/.zshrc.pre-oh-my-zsh
 .DS_Store
 dump.rdb
+*.aux
+*.log
+*.synctex.gz
+*.blg

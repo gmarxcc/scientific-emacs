@@ -1,18 +1,32 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{lipsum}
+%\usepackage{biblatex}
+%\addbibresource{refs}
+\title{Project's title}
+\author{Gerardo Marx}
 \begin{document}
-Hello \LaTeX{}.
+\maketitle{}
 
 \section{Introduction}
 \label{sec:intro}
-
+\lipsum[1]
 
 \begin{figure}[htb]
   \centering
-  \includegraphics
-  \caption{Test}
+  \includegraphics[width=2.5in]{XdWGT}
+  \caption{Test figure.}
+  \label{test}
 \end{figure}
+
+\section{Methodology}
+\label{sec:methods}
+
+\lipsum[2-3]
+
+More test with references here \cite{einstein}.
+\bibliography{refs.bib}
+\bibliographystyle{ieeetr}
 \end{document}
 
 %%% Local Variables:

@@ -1,4 +1,24 @@
 # Readme 
+This is the version `0.1` of scientific-emacs. This respositry contains the `Dockerfiles` to build the images for `Redis` and `Emacs`.
+
+# Installation
+To install the container first refer to the [Docker Installation Guide](https://docs.docker.com/docker-for-windows/install/). After test the **hello worlf of Docker system**, clone this repository within your
+*working directory* using:
+
+```
+$ git clone http://gmarx.jumpingcrab.com:8088/mice-rs101/latex-basic.git
+```
+
+Then, it is possible to build the *scientifc-emacs* container by:
+
+```
+$ docker build -t scientific-emacs:0.1 docker/emacs/
+```
+
+
+
+
+
 
 Write here about container
 

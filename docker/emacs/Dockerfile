@@ -18,8 +18,9 @@ texlive-science \
 texlive-bibtex-extra
 
 # useful apps
+RUN apt-get update
 RUN apt-get -y install \
-git \	
+git \
 wget \
 curl \
 aspell \
@@ -27,7 +28,14 @@ vim \
 python3 \
 elpa-pdf-tools \
 auctex \
-zsh
+zsh \
+python3-pip
+
+# installing python modules
+RUN pip3 install pandas \
+numpy \
+matplotlib \
+scholarly
 
 # oh-my-zshell
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 

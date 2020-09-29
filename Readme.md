@@ -14,12 +14,6 @@ Then, it is possible to build the *scientifc-emacs* container by:
 ```
 $ docker build -t scientific-emacs:0.1 docker/emacs/
 ```
-
-
-
-
-
-
 Write here about container
 
 # How to install
@@ -53,12 +47,16 @@ docker run --rm -it  -v`pwd`/emacs-config:/root \
 
 the 'emacs-config' folder contains the '.emacs' configuration file  
 
-To install:
-- aspell
-- curl
-- wget
-- git
-- zsh
+# What is installed on the repository
+The repository has previously installed
+- aspell:
+- curl: 
+- auctex:
+- pdftools:
+- oh-my-zshell:
+-
+
+## How to run pyhton scripts
 
 ## After first run the container
 Upgrade texlive to be able to install new packages by :
